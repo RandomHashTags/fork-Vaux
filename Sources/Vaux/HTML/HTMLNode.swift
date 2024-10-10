@@ -112,14 +112,14 @@ struct AttributedNode: HTML {
 
 /// MultiNode is an implementation detail for representing multiple sequenced
 /// HTML nodes
-struct MultiNode: HTML {
+public struct MultiNode: HTML {
 
-  func getTag() -> String? {
+  public func getTag() -> String? {
     return nil
   }
 
-  let children: [HTML]
-  func renderAsHTML(into stream: HTMLOutputStream, attributes: [Attribute]) {
+  public let children: [HTML]
+  public func renderAsHTML(into stream: HTMLOutputStream, attributes: [Attribute]) {
     for child in children {
       child.renderAsHTML(into: stream, attributes: attributes)
     }
