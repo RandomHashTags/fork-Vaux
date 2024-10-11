@@ -95,15 +95,15 @@ public struct StyleAttribute {
 /// Wraps an HTML object with a given attribute. these attributes are collected
 /// while walking the node hierarchy and finally printed when printing an
 /// `HTMLNode`.
-struct AttributedNode: HTML {
-  let attribute: Attribute
-  let child: HTML
+public struct AttributedNode: HTML {
+  public let attribute: Attribute
+  public let child: HTML
 
-  func getTag() -> String? {
+  public func getTag() -> String? {
     return child.getTag()
   }
 
-  func renderAsHTML(into stream: HTMLOutputStream, attributes: [Attribute]) {
+  public func renderAsHTML(into stream: HTMLOutputStream, attributes: [Attribute]) {
     var fullAttrs = attributes
     fullAttrs.append(attribute)
     child.renderAsHTML(into: stream, attributes: fullAttrs)
